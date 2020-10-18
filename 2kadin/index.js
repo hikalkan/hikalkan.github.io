@@ -22,7 +22,7 @@
         //Should be a different person
       } while (selectedPerson2 == selectedPerson1);
       //Should not be "E" & "E" (double man)
-    } while (selectedPerson1.sex === "E" && selectedPerson2.sex === "E");
+    } while (selectedPerson1.sex === "E" && selectedPerson2.sex === "E");  
     //Select the sample woman
     selectedWomen = getOneSelectedWomen();
   }
@@ -42,19 +42,37 @@
     }
   }
 
+  function getGameMode(){
+    return $('#GameMode').val();
+  }
+
   function setPresenterMessage() {
-    var message =
-      "Kapıların en az birisinin arkasında KADIN (adı " +
-      selectedWomen.name +
-      ") vardır. Bu durumda, sizce her iki kapıda da kadın mı vardır yoksa kapıların birisinde erkek birisinde kadın mı vardır?";
+    var gameMode = getGameMode();
+    var message = "Kapıların en az birisinin arkasında KADIN"
+    if(gameMode !== "HiddenName"){
+      message = message + " (adı " + selectedWomen.name + ")" ;
+    }
+
+    message = message + " vardır. Bu durumda, sizce her iki kapıda da kadın mı vardır yoksa kapıların birisinde erkek birisinde kadın mı vardır?";
     $("#PresenterMessage").text(message);
+
+    $('#Kapi1Name').text('?');
+    $('#Kapi2Name').text('?');
+
+    if(gameMode === "OpenDoor"){
+      if(selectedPerson1 === selectedWomen){
+        $('#Kapi1Name').text(selectedWomen.name);
+      } else {
+        $('#Kapi2Name').text(selectedWomen.name);
+      }
+    }
   }
 
   function refreshGame() {
     selectPersons();
+    setPresenterMessage();
     console.log(selectedPerson1);
     console.log(selectedPerson2);
-    setPresenterMessage();
   }
 
   function isSelectionTrue(selection) {
@@ -224,6 +242,10 @@
       for (var i = 0; i < count; i++) {
         applySelection("E");
       }
+    });
+
+    $('#GameMode').change(function(){
+      setPresenterMessage();
     });
   });
 })(jQuery);
