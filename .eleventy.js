@@ -14,10 +14,4 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "_includes/layouts/assets/plugins": "assets/plugins"
   });
-  
-  return {
-    dir: {
-      output: "docs"
-    }
-  };
 };
