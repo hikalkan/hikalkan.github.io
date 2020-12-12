@@ -1,8 +1,8 @@
 ---
-title: Halil İbrahim Kalkan
+title: Projects
 description: Personal website of Halil İbrahim Kalkan.
 layout: layouts/index.html
 ---
-# Welcome
+# My Projects
 
-This website is under construction...
+* ...

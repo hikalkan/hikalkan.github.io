@@ -1,8 +1,9 @@
 ---
-title: Halil İbrahim Kalkan
+title: Articles
 description: Personal website of Halil İbrahim Kalkan.
 layout: layouts/index.html
 ---
-# Welcome
+# Articles
 
-This website is under construction...
+* ...
+* ...
