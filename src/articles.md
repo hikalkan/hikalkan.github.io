@@ -3,9 +3,11 @@ title: Articles
 description: Personal website of Halil İbrahim Kalkan.
 layout: layouts/index.html
 ---
-# Articles
+<h1 class="display-4">Articles</h1>
 
+<p class="lead">
 I love to write software development articles and tutorials. Here, some of the contents I've created, grouped by years;
+</p>
 
 ### 2020
 
