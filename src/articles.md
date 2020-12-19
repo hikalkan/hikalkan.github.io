@@ -1,6 +1,6 @@
 ---
 title: Articles
-description: Personal website of Halil İbrahim Kalkan.
+description: Articles of Halil İbrahim Kalkan.
 layout: layouts/index.html
 ---
 <h1 class="display-4">Articles</h1>
