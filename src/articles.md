@@ -9,9 +9,12 @@ layout: layouts/index.html
 I love to write software development articles and tutorials. Here, some of the contents I've created, grouped by years;
 </p>
 
+### 2021
+
+* [Unifying DbContexts for EF Core](https://community.abp.io/posts/unifying-dbcontexts-for-ef-core-removing-the-ef-core-migrations-project-nsyhrtna)
+
 ### 2020
 
-* [Ultimate Guide for Implementing Domain Driven Design](https://docs.abp.io/en/abp/latest/Domain-Driven-Design-Implementation-Guide)
 * [Creating an Event Organizer Application with the ABP Framework & Blazor UI](https://community.abp.io/articles/creating-an-event-organizer-application-with-the-blazor-ui-wbe0sf2z)
 * [Why You Should Prefer Singleton Pattern over a Static Class?](https://medium.com/volosoft/why-you-should-prefer-singleton-pattern-over-a-static-class-a37731edb34f)
 
