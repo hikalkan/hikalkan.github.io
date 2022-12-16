@@ -9,6 +9,13 @@ layout: layouts/index.html
 I love to write software development articles and tutorials. Here, some of the contents I've created, grouped by years;
 </p>
 
+### 2022
+
+* [Injecting Service Dependencies to Entities with Entity Framework Core 7.0](https://community.abp.io/posts/injecting-service-dependencies-to-entities-with-entity-framework-core-7.0-db6vdh4s)
+* [Consuming gRPC Services from Blazor WebAssembly Application Using gRPC-Web](https://community.abp.io/posts/consuming-grpc-services-from-blazor-webassembly-application-using-grpcweb-dqjry3rv)
+* [Using gRPC with the ABP Framework](https://community.abp.io/posts/using-grpc-with-the-abp-framework-2dgaxzw3)
+* [Dealing with Multiple Implementations of a Service in ASP.NET Core & ABP Dependency Injection](https://community.abp.io/posts/dealing-with-multiple-implementations-of-a-service-in-asp.net-core-abp-dependency-injection-ysfp4ho2)
+
 ### 2021
 
 * [Unifying DbContexts for EF Core](https://community.abp.io/posts/unifying-dbcontexts-for-ef-core-removing-the-ef-core-migrations-project-nsyhrtna)
