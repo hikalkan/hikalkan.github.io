@@ -8,6 +8,8 @@ npm run eleventy -- --serve
 
 Then navigate to `http://localhost:8080`.
 
+Make changes in the `src` folder.
+
 Type the following command to build the site:
 
 ````bash
