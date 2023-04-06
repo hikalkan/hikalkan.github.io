@@ -6,7 +6,7 @@ Type the following command to start the live server:
 npm run eleventy -- --serve
 ````
 
-Then navigate to `http://localhost:8080`.
+Then navigate to http://localhost:8080
 
 Make changes in the `src` folder.
 

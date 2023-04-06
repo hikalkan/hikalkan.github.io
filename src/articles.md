@@ -9,6 +9,10 @@ layout: layouts/index.html
 I love to write software development articles and tutorials. Here, some of the contents I've created, grouped by years;
 </p>
 
+### 2023
+
+* [Using Dapper with the ABP Framework](https://community.abp.io/posts/using-dapper-with-the-abp-framework-shp74p2l)
+
 ### 2022
 
 * [Injecting Service Dependencies to Entities with Entity Framework Core 7.0](https://community.abp.io/posts/injecting-service-dependencies-to-entities-with-entity-framework-core-7.0-db6vdh4s)
