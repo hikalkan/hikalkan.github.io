@@ -11,6 +11,7 @@ I love to write software development articles and tutorials. Here, some of the c
 
 ### 2023
 
+* [Kubernetes Integrated Microservice Development with .NET and ABP Studio](https://community.abp.io/posts/kubernetes-integrated-microservice-development-with-.net-and-abp-studio-h11utnq8)
 * [Using Dapper with the ABP Framework](https://community.abp.io/posts/using-dapper-with-the-abp-framework-shp74p2l)
 
 ### 2022
