@@ -11,6 +11,7 @@ I love to write software development articles and tutorials. Here, some of the c
 
 ### 2023
 
+* [Using Complex Types as Value Objects with Entity Framework Core 8.0](https://abp.io/community/articles/using-complex-types-as-value-objects-with-entity-framework-core-8.0-fs0ynz6e)
 * [Kubernetes Integrated Microservice Development with .NET and ABP Studio](https://community.abp.io/posts/kubernetes-integrated-microservice-development-with-.net-and-abp-studio-h11utnq8)
 * [Using Dapper with the ABP Framework](https://community.abp.io/posts/using-dapper-with-the-abp-framework-shp74p2l)
 
