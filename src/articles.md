@@ -9,6 +9,10 @@ layout: layouts/index.html
 I love to write software development articles and tutorials. Here, some of the contents I've created, grouped by years;
 </p>
 
+### 2024
+
+* [.NET Aspire vs ABP Studio: Side by Side](https://abp.io/community/articles/.net-aspire-vs-abp-studio-side-by-side-t1c73d1l)
+
 ### 2023
 
 * [Using Complex Types as Value Objects with Entity Framework Core 8.0](https://abp.io/community/articles/using-complex-types-as-value-objects-with-entity-framework-core-8.0-fs0ynz6e)
