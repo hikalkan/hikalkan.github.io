@@ -9,6 +9,10 @@ layout: layouts/index.html
 I love to write software development articles and tutorials. Here, some of the contents I've created, grouped by years;
 </p>
 
+### 2025
+
+* [Using Microsoft AI Extensions Library and OpenAI to Summarize User Comments](https://abp.io/community/articles/using-microsoft-ai-extensions-library-and-openai-to-summarize-user-comments-gj1lusg7)
+
 ### 2024
 
 * [.NET Aspire vs ABP Studio: Side by Side](https://abp.io/community/articles/.net-aspire-vs-abp-studio-side-by-side-t1c73d1l)
