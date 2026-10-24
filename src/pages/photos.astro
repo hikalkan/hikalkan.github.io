@@ -1,0 +1,160 @@
+---
+import { getImage, Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { getGallery } from '../lib/content';
+import { imageByName } from '../lib/images';
+import { getTalks } from '../lib/talks';
+
+const photos = await getGallery();
+const talkById = new Map((await getTalks()).map((talk) => [talk.id, talk]));
+
+const frame = {
+  wide: 'aspect-[16/10] sm:aspect-[8/3]',
+  normal: 'aspect-[4/3]',
+} as const;
+
+const slides = await Promise.all(
+  photos.map(async (photo) => {
+    const image = imageByName(photo.data.image);
+    const rendered = await getImage({ src: image, width: 1800, format: 'webp' });
+    const talk = photo.data.talk ? talkById.get(photo.data.talk) : undefined;
+    return {
+      id: photo.id,
+      src: rendered.src,
+      width: rendered.attributes.width as number,
+      height: rendered.attributes.height as number,
+      alt: photo.data.alt,
+      event: photo.data.event,
+      location: photo.data.location,
+      talk: talk?.data.title ?? '',
+    };
+  }),
+);
+---
+
+<BaseLayout
+  title="Photos"
+  description="Photos of Halil İbrahim Kalkan speaking at conferences including Techorama, DotNext, DevDays Europe and .NET Fest."
+>
+  <PageHeader title="On stage">
+    <p>Conference photos, from the hall and from the stage.</p>
+  </PageHeader>
+
+  <div class="grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-4">
+    {
+      photos.map((photo, index) => {
+        const talk = photo.data.talk ? talkById.get(photo.data.talk) : undefined;
+        return (
+          <button
+            type="button"
+            id={photo.id}
+            data-photo={index}
+            aria-label={photo.data.alt}
+            class:list={['group flex scroll-mt-24 flex-col text-left', photo.data.layout === 'wide' && 'col-span-2']}
+          >
+            <span class:list={['relative block overflow-hidden rounded-xl bg-card', frame[photo.data.layout === 'wide' ? 'wide' : 'normal']]}>
+              <Image
+                src={imageByName(photo.data.image)}
+                alt=""
+                widths={photo.data.layout === 'wide' ? [480, 960] : [320, 640]}
+                sizes={photo.data.layout === 'wide' ? '(min-width: 896px) 430px, 100vw' : '(min-width: 896px) 210px, 50vw'}
+                class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                style={{ objectPosition: photo.data.focus }}
+              />
+            </span>
+            <span aria-hidden="true" class="px-0.5 pt-2">
+              <span class="block text-sm font-medium">{photo.data.event}</span>
+              <span class="block text-xs text-muted">{photo.data.location}</span>
+              {talk && <span class="mt-0.5 line-clamp-2 block text-xs text-faint">{talk.data.title}</span>}
+            </span>
+          </button>
+        );
+      })
+    }
+  </div>
+
+  <dialog id="lightbox" aria-label="Photo" class="m-0 h-dvh max-h-none w-full max-w-none bg-black p-0 text-white backdrop:bg-black">
+    <div data-backdrop class="grid h-full min-h-0 grid-rows-[1fr_auto] px-3 py-4 sm:px-16 sm:py-6">
+      <div data-backdrop class="relative h-full min-h-0 overflow-hidden">
+        <img id="lightbox-img" alt="" class="absolute inset-0 m-auto h-full w-full object-contain" />
+        <button type="button" data-prev class="absolute top-1/2 left-0 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white/15 backdrop-blur transition-colors hover:bg-white/25 sm:left-2" aria-label="Previous photo">
+          <Icon name="arrow-right" class="size-5 rotate-180" />
+        </button>
+        <button type="button" data-next class="absolute top-1/2 right-0 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white/15 backdrop-blur transition-colors hover:bg-white/25 sm:right-2" aria-label="Next photo">
+          <Icon name="arrow-right" class="size-5" />
+        </button>
+      </div>
+      <div class="mx-auto mt-4 flex w-full max-w-3xl items-end justify-between gap-6">
+        <p>
+          <span id="lightbox-event" class="font-medium"></span>
+          <span id="lightbox-meta" class="mt-1 block text-sm text-pretty text-white/70"></span>
+        </p>
+        <p id="lightbox-count" class="shrink-0 text-sm text-white/60 tabular-nums"></p>
+      </div>
+    </div>
+    <button type="button" data-close class="absolute top-4 right-4 grid size-10 place-items-center rounded-full bg-white/15 backdrop-blur transition-colors hover:bg-white/25" aria-label="Close">
+      <Icon name="close" class="size-5" />
+    </button>
+  </dialog>
+</BaseLayout>
+
+<script define:vars={{ slides }}>
+  const dialog = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  const eventEl = document.getElementById('lightbox-event');
+  const metaEl = document.getElementById('lightbox-meta');
+  const countEl = document.getElementById('lightbox-count');
+  let index = 0;
+
+  function show(next) {
+    index = (next + slides.length) % slides.length;
+    const slide = slides[index];
+    img.src = slide.src;
+    img.width = slide.width;
+    img.height = slide.height;
+    img.alt = slide.alt;
+    eventEl.textContent = slide.event;
+    metaEl.textContent = [slide.location, slide.talk].filter(Boolean).join(' · ');
+    countEl.textContent = `${index + 1} / ${slides.length}`;
+    if (!dialog.open) dialog.showModal();
+  }
+
+  document.querySelectorAll('[data-photo]').forEach((button) => {
+    button.addEventListener('click', () => show(Number(button.dataset.photo)));
+  });
+  document.querySelector('[data-prev]').addEventListener('click', () => show(index - 1));
+  document.querySelector('[data-next]').addEventListener('click', () => show(index + 1));
+  document.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog || event.target.hasAttribute('data-backdrop')) dialog.close();
+  });
+
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      show(index + 1);
+    }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      show(index - 1);
+    }
+  });
+
+  let startX = 0;
+  img.addEventListener('pointerdown', (event) => {
+    startX = event.clientX;
+  });
+  img.addEventListener('pointerup', (event) => {
+    const delta = event.clientX - startX;
+    if (Math.abs(delta) > 50) show(index + (delta < 0 ? 1 : -1));
+  });
+
+  const hashed = slides.findIndex((slide) => slide.id === location.hash.slice(1));
+  if (hashed >= 0) {
+    document.getElementById(slides[hashed].id)?.scrollIntoView({ block: 'center' });
+    show(hashed);
+  }
+</script>

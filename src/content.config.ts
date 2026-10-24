@@ -55,6 +55,27 @@ const projects = defineCollection({
   }),
 });
 
+const gallery = defineCollection({
+  loader: file('src/data/gallery.yaml'),
+  schema: z.object({
+    order: z.number().int(),
+    image: z.string(),
+    alt: z.string(),
+    event: z.string(),
+    location: z.string(),
+    /** Id of the matching entry in talks.yaml. */
+    talk: z.string().optional(),
+    /** `wide` spans two columns. */
+    layout: z.enum(['wide']).optional(),
+    /** Position in the home page mosaic. 1 is the large cell. */
+    featured: z.number().int().optional(),
+    /** Offered as a high-resolution download on the speaker kit page. */
+    kit: z.boolean().default(false),
+    /** CSS object-position, for views that crop the photo. */
+    focus: z.string().default('center'),
+  }),
+});
+
 const books = defineCollection({
   loader: file('src/data/books.yaml'),
   schema: z.object({
@@ -68,4 +89,4 @@ const books = defineCollection({
   }),
 });
 
-export const collections = { talks, articles, projects, books };
+export const collections = { talks, articles, projects, books, gallery };

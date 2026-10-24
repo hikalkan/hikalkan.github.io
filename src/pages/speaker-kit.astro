@@ -4,12 +4,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import Icon from '../components/Icon.astro';
 import ActionLink from '../components/ActionLink.astro';
+import { getGallery } from '../lib/content';
+import { imageByName } from '../lib/images';
 import { social } from '../lib/site';
 import { eventName, getTalks, talkStats } from '../lib/talks';
 import { bios, signatureTalks } from '../data/speaker-kit';
-import portrait from '../assets/images/halil-ibrahim-kalkan-profile-picture.jpg';
-import stage from '../assets/images/halil-ibrahim-kalkan-speaking.jpg';
-import hallway from '../assets/images/dotnetfest-halil.jpg';
+import portrait from '../assets/images/portrait.jpg';
 
 const talks = await getTalks();
 const stats = talkStats(talks);
@@ -22,9 +22,15 @@ const stages = [
 ];
 
 const photos = [
-  { image: portrait, label: 'Portrait (square)' },
-  { image: stage, label: 'On stage at DotNext' },
-  { image: hallway, label: 'With attendees at .NET Fest' },
+  { image: portrait, file: 'portrait.jpg', label: 'Portrait', focus: 'center 40%' },
+  ...(await getGallery())
+    .filter((photo) => photo.data.kit)
+    .map((photo) => ({
+      image: imageByName(photo.data.image),
+      file: photo.data.image,
+      label: `${photo.data.event}, ${photo.data.location.split(',')[0]}`,
+      focus: photo.data.focus,
+    })),
 ];
 
 const linkedIn = social.find((s) => s.icon === 'linkedin')!;
@@ -74,10 +80,16 @@ const x = social.find((s) => s.icon === 'x')!;
       {
         photos.map((p) => (
           <figure class="group">
-            <Image src={p.image} alt={p.label} width={400} class="aspect-square w-full rounded-xl border border-line object-cover" />
+            <Image
+              src={p.image}
+              alt={p.label}
+              width={400}
+              class="aspect-square w-full rounded-xl border border-line object-cover"
+              style={{ objectPosition: p.focus }}
+            />
             <figcaption class="mt-3 flex items-center justify-between gap-2 text-sm">
               <span class="text-muted">{p.label}</span>
-              <a href={p.image.src} download class="inline-flex items-center gap-1 font-medium text-fg hover:text-accent">
+              <a href={p.image.src} download={p.file} class="inline-flex items-center gap-1 font-medium text-fg hover:text-accent">
                 <Icon name="download" class="size-4" /> Download
               </a>
             </figcaption>
@@ -85,6 +97,11 @@ const x = social.find((s) => s.icon === 'x')!;
         ))
       }
     </div>
+    <p class="mt-6">
+      <a href="/photos" class="inline-flex items-center gap-1 text-sm link">
+        View all photos <Icon name="arrow-right" class="size-3.5" />
+      </a>
+    </p>
   </section>
 
   <section class="mt-20">

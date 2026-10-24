@@ -5,13 +5,18 @@ import ActionLink from '../components/ActionLink.astro';
 import Icon from '../components/Icon.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import TalkItem from '../components/TalkItem.astro';
-import { getArticles, getBooks, getProjects } from '../lib/content';
+import { firstPhotoByTalk, getArticles, getBooks, getGallery, getProjects } from '../lib/content';
 import { imageByName } from '../lib/images';
 import { site, social } from '../lib/site';
 import { getTalks, talkStats, youTubeId, formatTalkDate } from '../lib/talks';
-import portrait from '../assets/images/halil-ibrahim-kalkan-profile-picture.jpg';
+import portrait from '../assets/images/portrait.jpg';
 
 const talks = await getTalks();
+const gallery = await getGallery();
+const photoByTalk = firstPhotoByTalk(gallery);
+const mosaic = gallery
+  .filter((photo) => photo.data.featured)
+  .sort((a, b) => a.data.featured! - b.data.featured!);
 const stats = talkStats(talks);
 const articles = await getArticles();
 const books = await getBooks();
@@ -71,7 +76,7 @@ const jsonLd = {
       widths={[160, 320, 460]}
       sizes="(min-width: 640px) 208px, 128px"
       loading="eager"
-      class="size-32 shrink-0 rounded-full object-cover ring-1 ring-line sm:size-52"
+      class="size-32 shrink-0 rounded-full object-cover object-[center_40%] ring-1 ring-line sm:size-52"
     />
   </section>
 
@@ -88,6 +93,37 @@ const jsonLd = {
       ))
     }
   </dl>
+
+  <section class="mt-16">
+    <div class="mb-4 flex items-baseline justify-between gap-4">
+      <h2 class="text-xl font-semibold tracking-tight">On stage</h2>
+      <a href="/photos" class="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-fg">
+        All photos <Icon name="arrow-right" class="size-3.5" />
+      </a>
+    </div>
+    <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+      {
+        mosaic.map((photo, i) => (
+          <a
+            href={`/photos#${photo.id}`}
+            class:list={[
+              'group relative block h-full overflow-hidden rounded-xl',
+              i === 0 ? 'col-span-2 aspect-[16/10] sm:row-span-2 sm:aspect-auto' : 'aspect-[4/3]',
+            ]}
+          >
+            <Image
+              src={imageByName(photo.data.image)}
+              alt={photo.data.alt}
+              widths={i === 0 ? [640, 960] : [320, 480]}
+              sizes={i === 0 ? '(min-width: 896px) 430px, 100vw' : '(min-width: 896px) 210px, 50vw'}
+              class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+              style={{ objectPosition: photo.data.focus }}
+            />
+          </a>
+        ))
+      }
+    </div>
+  </section>
 
   <section class="mt-24">
     <div class="mb-6 flex items-baseline justify-between gap-4">
@@ -127,7 +163,9 @@ const jsonLd = {
       </a>
     </div>
     <ul class="divide-y divide-line">
-      {recentTalks.map((talk) => <TalkItem talk={talk} />)}
+      {recentTalks.map((talk) => (
+        <TalkItem talk={talk} photosHref={photoByTalk.has(talk.id) ? `/photos#${photoByTalk.get(talk.id)}` : undefined} />
+      ))}
     </ul>
   </section>
 

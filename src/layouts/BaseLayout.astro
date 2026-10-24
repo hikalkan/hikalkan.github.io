@@ -1,10 +1,11 @@
 ---
+import { getImage } from 'astro:assets';
 import '@fontsource-variable/inter';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/site';
-import ogImage from '../assets/images/halil-ibrahim-kalkan-speaking.jpg';
+import ogSource from '../assets/images/og.jpg';
 
 interface Props {
   title?: string;
@@ -16,6 +17,7 @@ interface Props {
 const { title, description = site.description, jsonLd } = Astro.props;
 const fullTitle = title ? `${title} · ${site.name}` : `${site.name} · Software Architect`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = await getImage({ src: ogSource, width: 1200, height: 630, format: 'jpg' });
 const image = new URL(ogImage.src, Astro.site);
 ---
 
@@ -39,6 +41,8 @@ const image = new URL(ogImage.src, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hibrahimkalkan" />
 

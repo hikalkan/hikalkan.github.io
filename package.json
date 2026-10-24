@@ -7,11 +7,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "photos": "node scripts/resize-photos.mjs",
     "astro": "astro"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hikalkan/hikalkan.github.io.git"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

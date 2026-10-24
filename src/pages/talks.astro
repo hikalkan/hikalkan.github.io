@@ -2,10 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import TalkItem from '../components/TalkItem.astro';
+import { firstPhotoByTalk, getGallery } from '../lib/content';
 import { formats, topics, type Topic } from '../lib/taxonomy';
 import { getTalks, talkStats, talkYear } from '../lib/talks';
 
 const talks = await getTalks();
+const photoByTalk = firstPhotoByTalk(await getGallery());
 const stats = talkStats(talks);
 
 const years = [...new Set(talks.map(talkYear))];
@@ -27,7 +29,8 @@ const topicCounts = (Object.keys(topics) as Topic[])
       slides and video recordings where available.
     </p>
     <p class="mt-4 text-base text-faint">
-      {stats.total} talks · {stats.international} international · {stats.countries} countries · {stats.videos} recordings
+      {stats.total} talks · {stats.international} international · {stats.countries} countries · {stats.videos} recordings ·{' '}
+      <a href="/photos" class="transition-colors hover:text-fg">photos</a>
     </p>
   </PageHeader>
 
@@ -86,7 +89,13 @@ const topicCounts = (Object.keys(topics) as Topic[])
       <section class="grid gap-x-8 sm:grid-cols-[5rem_1fr]" data-year-group>
         <h2 class="pt-5 text-sm font-semibold text-faint tabular-nums sm:sticky sm:top-20 sm:self-start">{group.year}</h2>
         <ul class="divide-y divide-line border-b border-line">
-          {group.talks.map((talk) => <TalkItem talk={talk} filterable />)}
+          {group.talks.map((talk) => (
+            <TalkItem
+              talk={talk}
+              filterable
+              photosHref={photoByTalk.has(talk.id) ? `/photos#${photoByTalk.get(talk.id)}` : undefined}
+            />
+          ))}
         </ul>
       </section>
     ))

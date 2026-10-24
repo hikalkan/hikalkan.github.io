@@ -1,0 +1,118 @@
+# Conference photos, in display order.
+# image: file name in src/assets/gallery (produced by `npm run photos`)
+# talk: id from talks.yaml, when the photo is from that session
+# layout: wide spans two columns; omit for a regular cell
+# featured: position in the home page mosaic (1 is the large cell); omit to leave it out
+# kit: offered as a high-resolution download on the speaker kit page
+# focus: CSS object-position, used where the photo is cropped to fit
+
+- id: 2025-techorama-audience
+  order: 1
+  image: 2025-techorama-2.jpg
+  alt: A full auditorium at Techorama Netherlands 2025, with Halil İbrahim Kalkan presenting a Domain-Driven Design session
+  event: Techorama Netherlands 2025
+  location: Utrecht, Netherlands
+  talk: 2025-techorama-nl-ddd
+  layout: wide
+  featured: 2
+  kit: true
+  focus: center
+
+- id: 2025-devdays-vilnius-close
+  order: 2
+  image: 2025-devdays-vilnius-1.jpg
+  alt: Halil İbrahim Kalkan speaking on stage at DevDays Europe 2025 in Vilnius
+  event: DevDays Europe 2025
+  location: Vilnius, Lithuania
+  talk: 2025-devdays-vilnius-ddd
+  featured: 3
+  focus: center 35%
+
+- id: 2025-techorama-stage
+  order: 3
+  image: 2025-techorama-1.jpg
+  alt: Halil İbrahim Kalkan on stage beside the Techorama podium
+  event: Techorama Netherlands 2025
+  location: Utrecht, Netherlands
+  talk: 2025-techorama-nl-ddd
+  featured: 5
+  kit: true
+  focus: 70% center
+
+- id: 2024-dotnext-moscow-stage
+  order: 5
+  image: 2024-dotnext-moscow-1.jpg
+  alt: Halil İbrahim Kalkan presenting to the audience at DotNext 2024 in Moscow
+  event: DotNext 2024
+  location: Moscow, Russia
+  talk: 2024-dotnext-ddd
+  featured: 1
+  kit: true
+  focus: 72% 40%
+
+- id: 2025-devdays-vilnius-room
+  order: 6
+  image: 2025-devdays-vilnius-2.jpg
+  alt: The packed hall at DevDays Europe 2025 during the Domain-Driven Design talk
+  event: DevDays Europe 2025
+  location: Vilnius, Lithuania
+  talk: 2025-devdays-vilnius-ddd
+  kit: true
+  focus: 25% 45%
+
+- id: 2019-dotnetfest-podium
+  order: 7
+  image: 2019-dotnetfest-2.jpg
+  alt: Halil İbrahim Kalkan at the podium during .NET Fest 2019 in Kyiv
+  event: .NET Fest 2019
+  location: Kyiv, Ukraine
+  talk: 2019-dotnetfest-ddd
+  kit: true
+  focus: center 22%
+
+- id: 2019-dotnetfest-room
+  order: 4
+  image: 2019-dotnetfest-1.jpg
+  alt: A large audience at .NET Fest 2019 listening to the Domain-Driven Design talk
+  event: .NET Fest 2019
+  location: Kyiv, Ukraine
+  talk: 2019-dotnetfest-ddd
+  layout: wide
+  featured: 4
+  focus: 30% center
+
+- id: 2024-dotnext-moscow-qa
+  order: 8
+  image: 2024-dotnext-moscow-2.jpg
+  alt: Halil İbrahim Kalkan answering questions from attendees after his DotNext 2024 talk
+  event: DotNext 2024
+  location: Moscow, Russia
+  talk: 2024-dotnext-ddd
+  focus: 75% center
+
+- id: 2024-devdays-vilnius
+  order: 9
+  image: 2024-devdays-vilnius-1.jpg
+  alt: Halil İbrahim Kalkan presenting in a darkened auditorium at DevDays Europe 2024
+  event: DevDays Europe 2024
+  location: Vilnius, Lithuania
+  talk: 2024-devdays-vilnius-kubernetes
+  focus: 82% center
+
+- id: 2025-dotnext-spb
+  order: 10
+  image: 2025-dotnext-spb.jpg
+  alt: Halil İbrahim Kalkan speaking at DotNext 2025 in St. Petersburg
+  event: DotNext 2025
+  location: St. Petersburg, Russia
+  talk: 2025-dotnext-modular-monolith
+  focus: 32% center
+
+- id: 2019-dotnetfest-hallway
+  order: 11
+  image: 2019-dotnetfest-3.jpg
+  alt: Halil İbrahim Kalkan talking with attendees after a session at .NET Fest 2019
+  event: .NET Fest 2019
+  location: Kyiv, Ukraine
+  talk: 2019-dotnetfest-ddd
+  focus: 22% center

@@ -9,6 +9,7 @@ npm install
 npm run dev      # http://localhost:4321
 npm run build    # outputs to dist/
 npm run preview  # serves the built site
+npm run photos -- <folder>  # resize new conference photos (see scripts/resize-photos.mjs)
 ```
 
 Pushing to `master` builds and deploys the site to GitHub Pages via `.github/workflows/deploy.yml`.
@@ -23,6 +24,7 @@ Most content lives in YAML files under `src/data`, validated by the schemas in `
 | `src/data/articles.yaml` | Articles. The source badge is derived from the URL. |
 | `src/data/projects.yaml` | Projects (`active`, `past` or `oldies`). |
 | `src/data/books.yaml` | Books. |
+| `src/data/gallery.yaml` | Conference photos. `talk` must be an id from `talks.yaml`. |
 | `src/data/speaker-kit.ts` | Bios and talk abstracts for the speaker kit page. |
 
-Images referenced from data files go in `src/assets/images` and are optimized at build time.
+Images referenced from data files go in `src/assets/images` (and conference photos in `src/assets/gallery`). They are optimized at build time.

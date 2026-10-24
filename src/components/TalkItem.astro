@@ -7,9 +7,11 @@ interface Props {
   talk: Talk;
   /** Renders topics as filter buttons (used on the talks page). */
   filterable?: boolean;
+  /** Link to a conference photo of this talk, e.g. /photos#some-id. */
+  photosHref?: string;
 }
 
-const { talk, filterable = false } = Astro.props;
+const { talk, filterable = false, photosHref } = Astro.props;
 const t = talk.data;
 const badges = [t.format !== 'conference' && formats[t.format], t.role === 'co-speaker' && 'Co-speaker'].filter(Boolean);
 ---
@@ -67,6 +69,13 @@ const badges = [t.format !== 'conference' && formats[t.format], t.role === 'co-s
       t.slides && (
         <a href={t.slides} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 font-medium text-fg transition-colors hover:text-accent">
           <Icon name="slides" class="size-4" /> Slides
+        </a>
+      )
+    }
+    {
+      photosHref && (
+        <a href={photosHref} class="inline-flex items-center gap-1.5 font-medium text-fg transition-colors hover:text-accent">
+          <Icon name="camera" class="size-4" /> Photos
         </a>
       )
     }
