@@ -11,6 +11,7 @@ I love to write software development articles and tutorials. Here, some of the c
 
 ### 2025
 
+* [Multi-Tenancy with Separate Databases in .NET and ABP Framework](https://abp.io/community/articles/multitenancy-with-separate-databases-in-dotnet-and-abp-51nvl4u9)
 * [Using Microsoft AI Extensions Library and OpenAI to Summarize User Comments](https://abp.io/community/articles/using-microsoft-ai-extensions-library-and-openai-to-summarize-user-comments-gj1lusg7)
 
 ### 2024
