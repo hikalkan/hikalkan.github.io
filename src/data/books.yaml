@@ -1,0 +1,28 @@
+# image: file name in src/assets/images
+
+- id: mastering-abp-framework
+  order: 1
+  title: Mastering ABP Framework
+  subtitle: Building maintainable .NET solutions by following software development best practices using ABP
+  published: Packt Publishing, February 2022
+  description: >-
+    A complete guide to software development with the ABP Framework and ASP.NET Core.
+    It helps you gain a complete understanding of the ABP Framework and modern web
+    application development techniques.
+  image: mastering-abp-framework.png
+  links:
+    - { label: Order on Amazon, url: "https://www.amazon.com/Mastering-ABP-Framework-maintainable-implementing-dp-1801079242/dp/1801079242", kind: buy }
+    - { label: Buy from Packt, url: "https://www.packtpub.com/product/mastering-abp-framework/9781801079242", kind: buy }
+
+- id: implementing-domain-driven-design
+  order: 2
+  title: Implementing Domain Driven Design
+  subtitle: A practical guide for implementing Domain Driven Design with the ABP Framework
+  published: Free e-book
+  description: >-
+    While the implementation details are based on the ABP Framework infrastructure,
+    the basic concepts, principles and models can be applied to any solution, even
+    if it is not a .NET solution.
+  image: abp-framework-free-ddd-ebook.png
+  links:
+    - { label: Download for free, url: "https://abp.io/books/implementing-domain-driven-design", kind: download }

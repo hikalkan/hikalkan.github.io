@@ -1,0 +1,34 @@
+---
+import type { ComponentProps } from 'astro/types';
+import Icon from './Icon.astro';
+
+type IconName = ComponentProps<typeof Icon>['name'];
+
+interface Props {
+  href: string;
+  icon?: IconName;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  external?: boolean;
+  download?: boolean;
+}
+
+const { href, icon, variant = 'secondary', external = /^https?:/.test(href), download } = Astro.props;
+---
+
+<a
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener' : undefined}
+  download={download}
+  class:list={[
+    'inline-flex items-center gap-2 rounded-lg text-sm font-medium transition-colors',
+    {
+      'bg-fg px-4 py-2 text-bg hover:opacity-90': variant === 'primary',
+      'border border-line px-4 py-2 text-fg hover:border-faint': variant === 'secondary',
+      'text-muted hover:text-fg': variant === 'ghost',
+    },
+  ]}
+>
+  {icon && <Icon name={icon} class="size-4" />}
+  <slot />
+</a>

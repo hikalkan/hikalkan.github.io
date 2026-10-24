@@ -1,0 +1,153 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import ActionLink from '../components/ActionLink.astro';
+import { social } from '../lib/site';
+import { eventName, getTalks, talkStats } from '../lib/talks';
+import { bios, signatureTalks } from '../data/speaker-kit';
+import portrait from '../assets/images/halil-ibrahim-kalkan-profile-picture.jpg';
+import stage from '../assets/images/halil-ibrahim-kalkan-speaking.jpg';
+import hallway from '../assets/images/dotnetfest-halil.jpg';
+
+const talks = await getTalks();
+const stats = talkStats(talks);
+const talkById = new Map(talks.map((t) => [t.id, t]));
+
+const stages = [
+  ...new Set(
+    talks.filter((t) => t.data.scope === 'international' && t.data.format !== 'meetup').map(eventName),
+  ),
+];
+
+const photos = [
+  { image: portrait, label: 'Portrait (square)' },
+  { image: stage, label: 'On stage at DotNext' },
+  { image: hallway, label: 'With attendees at .NET Fest' },
+];
+
+const linkedIn = social.find((s) => s.icon === 'linkedin')!;
+const x = social.find((s) => s.icon === 'x')!;
+---
+
+<BaseLayout
+  title="Speaker Kit"
+  description="Speaker kit for event organizers: bios, photos and talk abstracts of Halil İbrahim Kalkan."
+>
+  <PageHeader title="Speaker kit" eyebrow="For event organizers">
+    <p>
+      Everything you need to invite me to your conference or meetup: bios, photos and the talks I'm currently offering.
+      I've given {stats.total} talks in {stats.countries} countries so far.
+    </p>
+  </PageHeader>
+
+  <section>
+    <h2 class="mb-6 text-xl font-semibold tracking-tight">Bio</h2>
+    <div class="space-y-5">
+      <div class="rounded-2xl border border-line p-5 sm:p-6">
+        <div class="mb-3 flex items-center justify-between gap-4">
+          <h3 class="text-sm font-medium text-faint">Short</h3>
+          <button type="button" data-copy="bio-short" class="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-fg">
+            <Icon name="copy" class="size-4" /><span>Copy</span>
+          </button>
+        </div>
+        <p id="bio-short" class="leading-relaxed">{bios.short}</p>
+      </div>
+      <div class="rounded-2xl border border-line p-5 sm:p-6">
+        <div class="mb-3 flex items-center justify-between gap-4">
+          <h3 class="text-sm font-medium text-faint">Long</h3>
+          <button type="button" data-copy="bio-long" class="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-fg">
+            <Icon name="copy" class="size-4" /><span>Copy</span>
+          </button>
+        </div>
+        <div id="bio-long" class="space-y-4 leading-relaxed">
+          {bios.long.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-20">
+    <h2 class="mb-6 text-xl font-semibold tracking-tight">Photos</h2>
+    <div class="grid gap-5 sm:grid-cols-3">
+      {
+        photos.map((p) => (
+          <figure class="group">
+            <Image src={p.image} alt={p.label} width={400} class="aspect-square w-full rounded-xl border border-line object-cover" />
+            <figcaption class="mt-3 flex items-center justify-between gap-2 text-sm">
+              <span class="text-muted">{p.label}</span>
+              <a href={p.image.src} download class="inline-flex items-center gap-1 font-medium text-fg hover:text-accent">
+                <Icon name="download" class="size-4" /> Download
+              </a>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mt-20">
+    <h2 class="text-xl font-semibold tracking-tight">Talks I offer</h2>
+    <p class="mt-2 mb-8 text-muted">
+      Conference sessions and hands-on workshops, in English or Turkish. Topics can be adapted to your audience.
+    </p>
+    <div class="space-y-6">
+      {
+        signatureTalks.map((talk) => {
+          const previous = talk.presentedAt.map((id) => talkById.get(id)!).filter(Boolean);
+          return (
+            <article class="rounded-2xl border border-line p-5 sm:p-7">
+              <h3 class="text-lg font-semibold tracking-tight text-balance">{talk.title}</h3>
+              <div class="mt-3 space-y-3 text-[15px] leading-relaxed text-muted">
+                {talk.abstract.map((p) => <p>{p}</p>)}
+              </div>
+              <div class="mt-5 flex flex-wrap items-center gap-2 text-sm">
+                <span class="text-faint">Presented at</span>
+                {previous.map((t) => (
+                  <span class="rounded-full bg-card px-2.5 py-0.5 text-muted ring-1 ring-line">{t.data.event}</span>
+                ))}
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <section class="mt-20">
+    <h2 class="mb-6 text-xl font-semibold tracking-tight">Past stages</h2>
+    <ul class="flex flex-wrap gap-2">
+      {stages.map((name) => <li class="rounded-lg border border-line px-3 py-1.5 text-sm text-muted">{name}</li>)}
+    </ul>
+    <p class="mt-6">
+      <a href="/talks" class="inline-flex items-center gap-1 text-sm link">
+        See all talks with slides and recordings <Icon name="arrow-right" class="size-3.5" />
+      </a>
+    </p>
+  </section>
+
+  <section class="mt-20 rounded-3xl bg-card p-8 ring-1 ring-line sm:p-10">
+    <h2 class="text-2xl font-semibold tracking-tight">Let's talk</h2>
+    <p class="mt-3 max-w-xl text-muted">
+      Planning an event? Send me a message with the date, location and audience, and I'll get back to you.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <ActionLink href={linkedIn.url} icon="linkedin" variant="primary">Message on LinkedIn</ActionLink>
+      <ActionLink href={x.url} icon="x">Message on X</ActionLink>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const source = document.getElementById(button.dataset.copy!)!;
+      const text = [...source.querySelectorAll('p')].map((p) => p.textContent).join('\n\n') || source.textContent!;
+      await navigator.clipboard.writeText(text.trim());
+      const label = button.querySelector('span')!;
+      label.textContent = 'Copied';
+      setTimeout(() => (label.textContent = 'Copy'), 1600);
+    });
+  });
+</script>

@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import TalkItem from '../components/TalkItem.astro';
+import { formats, topics, type Topic } from '../lib/taxonomy';
+import { getTalks, talkStats, talkYear } from '../lib/talks';
+
+const talks = await getTalks();
+const stats = talkStats(talks);
+
+const years = [...new Set(talks.map(talkYear))];
+const byYear = years.map((year) => ({ year, talks: talks.filter((t) => talkYear(t) === year) }));
+
+const topicCounts = (Object.keys(topics) as Topic[])
+  .map((key) => ({ key, label: topics[key], count: talks.filter((t) => t.data.topics.includes(key)).length }))
+  .filter((t) => t.count > 0)
+  .sort((a, b) => b.count - a.count);
+---
+
+<BaseLayout
+  title="Talks"
+  description="Conference talks, workshops and meetups by Halil İbrahim Kalkan on Domain-Driven Design, modular monoliths, microservices, Kubernetes and .NET, with slides and video recordings."
+>
+  <PageHeader title="Talks">
+    <p>
+      I speak at conferences, meetups and online events about software architecture and .NET. Here are my talks, with
+      slides and video recordings where available.
+    </p>
+    <p class="mt-4 text-base text-faint">
+      {stats.total} talks · {stats.international} international · {stats.countries} countries · {stats.videos} recordings
+    </p>
+  </PageHeader>
+
+  <div class="mb-10 scroll-mt-24 space-y-4 rounded-2xl border border-line p-4 sm:p-5" data-filters>
+    <div>
+      <p class="mb-2 text-xs font-medium tracking-wide text-faint uppercase">Topic</p>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" class="chip" data-filter="topic" data-value="" aria-pressed="true">All</button>
+        {
+          topicCounts.map((t) => (
+            <button type="button" class="chip" data-filter="topic" data-value={t.key} aria-pressed="false">
+              {t.label}
+              <span class="text-xs opacity-60">{t.count}</span>
+            </button>
+          ))
+        }
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-x-8 gap-y-4">
+      <div>
+        <p class="mb-2 text-xs font-medium tracking-wide text-faint uppercase">Format</p>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" class="chip" data-filter="format" data-value="" aria-pressed="true">All</button>
+          {
+            Object.entries(formats).map(([key, label]) => (
+              <button type="button" class="chip" data-filter="format" data-value={key} aria-pressed="false">
+                {label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+      <div>
+        <p class="mb-2 text-xs font-medium tracking-wide text-faint uppercase">Audience</p>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" class="chip" data-filter="scope" data-value="" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="scope" data-value="international" aria-pressed="false">International</button>
+          <button type="button" class="chip" data-filter="scope" data-value="national" aria-pressed="false">Local</button>
+        </div>
+      </div>
+      <div>
+        <p class="mb-2 text-xs font-medium tracking-wide text-faint uppercase">Recording</p>
+        <button type="button" class="chip" data-filter="video" data-value="1" aria-pressed="false">With video</button>
+      </div>
+    </div>
+    <div class="flex items-center justify-between border-t border-line pt-4 text-sm">
+      <p class="text-muted" aria-live="polite"><span data-count>{talks.length}</span> talks</p>
+      <button type="button" class="hidden text-muted underline-offset-4 hover:text-fg hover:underline" data-clear>
+        Clear filters
+      </button>
+    </div>
+  </div>
+
+  {
+    byYear.map((group) => (
+      <section class="grid gap-x-8 sm:grid-cols-[5rem_1fr]" data-year-group>
+        <h2 class="pt-5 text-sm font-semibold text-faint tabular-nums sm:sticky sm:top-20 sm:self-start">{group.year}</h2>
+        <ul class="divide-y divide-line border-b border-line">
+          {group.talks.map((talk) => <TalkItem talk={talk} filterable />)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <p class="hidden py-16 text-center text-muted" data-empty>No talks match these filters.</p>
+</BaseLayout>
+
+<script>
+  type Filters = { topic: string; format: string; scope: string; video: string };
+  const keys: (keyof Filters)[] = ['topic', 'format', 'scope', 'video'];
+
+  const params = new URLSearchParams(location.search);
+  const state: Filters = {
+    topic: params.get('topic') ?? '',
+    format: params.get('format') ?? '',
+    scope: params.get('scope') ?? '',
+    video: params.get('video') ?? '',
+  };
+
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const items = [...document.querySelectorAll<HTMLElement>('[data-talk]')];
+  const groups = [...document.querySelectorAll<HTMLElement>('[data-year-group]')];
+  const count = document.querySelector('[data-count]')!;
+  const empty = document.querySelector('[data-empty]')!;
+  const clear = document.querySelector('[data-clear]')!;
+
+  function matches(item: HTMLElement) {
+    const d = item.dataset;
+    return (
+      (!state.topic || d.topics!.split(' ').includes(state.topic)) &&
+      (!state.format || d.format === state.format) &&
+      (!state.scope || d.scope === state.scope) &&
+      (!state.video || d.video === '1')
+    );
+  }
+
+  function render() {
+    let visible = 0;
+    for (const item of items) {
+      const show = matches(item);
+      item.hidden = !show;
+      if (show) visible++;
+    }
+    for (const group of groups) {
+      group.hidden = !group.querySelector('[data-talk]:not([hidden])');
+    }
+    for (const chip of chips) {
+      const key = chip.dataset.filter as keyof Filters;
+      chip.setAttribute('aria-pressed', String(state[key] === chip.dataset.value));
+    }
+    count.textContent = String(visible);
+    empty.classList.toggle('hidden', visible > 0);
+    clear.classList.toggle('hidden', keys.every((k) => !state[k]));
+
+    const query = new URLSearchParams();
+    keys.forEach((k) => state[k] && query.set(k, state[k]));
+    history.replaceState(null, '', query.size ? `?${query}` : location.pathname);
+  }
+
+  for (const chip of chips) {
+    chip.addEventListener('click', () => {
+      const key = chip.dataset.filter as keyof Filters;
+      const value = chip.dataset.value!;
+      state[key] = key === 'video' && state.video ? '' : value;
+      render();
+    });
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-topic-link]').forEach((button) =>
+    button.addEventListener('click', () => {
+      state.topic = button.dataset.topicLink!;
+      render();
+      document.querySelector('[data-filters]')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }),
+  );
+
+  clear.addEventListener('click', () => {
+    keys.forEach((k) => (state[k] = ''));
+    render();
+  });
+
+  render();
+</script>

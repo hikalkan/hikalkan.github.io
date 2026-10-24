@@ -1,0 +1,15 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { site } from '../lib/site';
+---
+
+<footer class="border-t border-line/60">
+  <div class="mx-auto flex max-w-4xl flex-col-reverse gap-4 px-6 py-8 text-sm text-faint sm:flex-row sm:items-center sm:justify-between">
+    <p>
+      © {new Date().getFullYear()} {site.name}
+      <span class="mx-1.5">·</span>
+      <a href={site.repo} class="transition-colors hover:text-fg">Source</a>
+    </p>
+    <SocialLinks />
+  </div>
+</footer>

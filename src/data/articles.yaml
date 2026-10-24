@@ -1,0 +1,146 @@
+# Articles, newest first. The source badge is derived from the URL host.
+
+- id: multi-tenancy-separate-databases
+  title: Multi-Tenancy with Separate Databases in .NET and ABP Framework
+  url: https://abp.io/community/articles/multitenancy-with-separate-databases-in-dotnet-and-abp-51nvl4u9
+  year: 2025
+
+- id: microsoft-ai-extensions-summarize-comments
+  title: Using Microsoft AI Extensions Library and OpenAI to Summarize User Comments
+  url: https://abp.io/community/articles/using-microsoft-ai-extensions-library-and-openai-to-summarize-user-comments-gj1lusg7
+  year: 2025
+
+- id: aspire-vs-abp-studio
+  title: ".NET Aspire vs ABP Studio: Side by Side"
+  url: https://abp.io/community/articles/.net-aspire-vs-abp-studio-side-by-side-t1c73d1l
+  year: 2024
+
+- id: ef-core-8-complex-types-value-objects
+  title: Using Complex Types as Value Objects with Entity Framework Core 8.0
+  url: https://abp.io/community/articles/using-complex-types-as-value-objects-with-entity-framework-core-8.0-fs0ynz6e
+  year: 2023
+
+- id: kubernetes-integrated-microservice-development
+  title: Kubernetes Integrated Microservice Development with .NET and ABP Studio
+  url: https://community.abp.io/posts/kubernetes-integrated-microservice-development-with-.net-and-abp-studio-h11utnq8
+  year: 2023
+
+- id: dapper-with-abp
+  title: Using Dapper with the ABP Framework
+  url: https://community.abp.io/posts/using-dapper-with-the-abp-framework-shp74p2l
+  year: 2023
+
+- id: ef-core-7-inject-services-to-entities
+  title: Injecting Service Dependencies to Entities with Entity Framework Core 7.0
+  url: https://community.abp.io/posts/injecting-service-dependencies-to-entities-with-entity-framework-core-7.0-db6vdh4s
+  year: 2022
+
+- id: grpc-web-blazor-wasm
+  title: Consuming gRPC Services from Blazor WebAssembly Application Using gRPC-Web
+  url: https://community.abp.io/posts/consuming-grpc-services-from-blazor-webassembly-application-using-grpcweb-dqjry3rv
+  year: 2022
+
+- id: grpc-with-abp
+  title: Using gRPC with the ABP Framework
+  url: https://community.abp.io/posts/using-grpc-with-the-abp-framework-2dgaxzw3
+  year: 2022
+
+- id: multiple-implementations-dependency-injection
+  title: Dealing with Multiple Implementations of a Service in ASP.NET Core & ABP Dependency Injection
+  url: https://community.abp.io/posts/dealing-with-multiple-implementations-of-a-service-in-asp.net-core-abp-dependency-injection-ysfp4ho2
+  year: 2022
+
+- id: unifying-dbcontexts
+  title: Unifying DbContexts for EF Core
+  url: https://community.abp.io/posts/unifying-dbcontexts-for-ef-core-removing-the-ef-core-migrations-project-nsyhrtna
+  year: 2021
+
+- id: event-organizer-blazor
+  title: Creating an Event Organizer Application with the ABP Framework & Blazor UI
+  url: https://community.abp.io/articles/creating-an-event-organizer-application-with-the-blazor-ui-wbe0sf2z
+  year: 2020
+
+- id: singleton-over-static-class
+  title: Why You Should Prefer Singleton Pattern over a Static Class?
+  url: https://medium.com/volosoft/why-you-should-prefer-singleton-pattern-over-a-static-class-a37731edb34f
+  year: 2020
+
+- id: aspnet-core-di-best-practices
+  title: ASP.NET Core Dependency Injection Best Practices & Tips
+  url: https://medium.com/volosoft/asp-net-core-dependency-injection-best-practices-tips-tricks-c6e9c67f9d96
+  year: 2019
+
+- id: modularity-virtual-file-system
+  title: "Designing Modularity on ASP.NET Core: Virtual File System"
+  url: https://medium.com/volosoft/designing-modularity-on-asp-net-core-virtual-file-system-2dd2cc2078bd
+  year: 2018
+
+- id: nlayered-aspnet-core-part-1
+  title: Using ASP.NET Core, Entity Framework Core and ASP.NET Boilerplate to Create NLayered Web Application (Part I)
+  url: https://www.codeproject.com/Articles/1115763/Using-ASP-NET-Core-Entity-Framework-Core-and-ASP-N
+  year: 2016
+
+- id: nlayered-aspnet-core-part-2
+  title: Using ASP.NET Core, Entity Framework Core and ASP.NET Boilerplate to Create NLayered Web Application (Part II)
+  url: https://www.codeproject.com/Articles/1117216/Using-ASP-NET-Core-Entity-Framework-Core-and-ASP
+  year: 2016
+
+- id: aop-interceptors-castle-windsor
+  title: Aspect Oriented Programming using Interceptors within Castle Windsor and ABP Framework
+  url: https://www.codeproject.com/Articles/1080517/Aspect-Oriented-Programming-using-Interceptors-wit
+  year: 2016
+
+- id: multi-tenant-saas-aspnet-mvc-angularjs
+  title: A Multi-Tenant (SaaS) Application With ASP.NET MVC, AngularJS, EntityFramework and ASP.NET Boilerplate
+  url: https://www.codeproject.com/Articles/1043326/A-Multi-Tenant-SaaS-Application-With-ASP-NET-MVC-A
+  year: 2015
+
+- id: unit-testing-xunit-effort
+  title: Unit Testing in C# using xUnit, Entity Framework, Effort and ASP.NET Boilerplate
+  url: https://www.codeproject.com/Articles/871786/Unit-Testing-in-Csharp-using-xUnit-Entity-Framewor
+  year: 2015
+
+- id: introduction-to-aspnet-boilerplate
+  title: Introduction to ASP.NET Boilerplate
+  url: https://www.codeproject.com/Articles/768664/Introduction-to-ASP-NET-Boilerplate
+  year: 2014
+
+- id: angularjs-aspnet-mvc-spa
+  title: Using AngularJS, ASP.NET MVC, Web API and EntityFramework to Build NLayered Single Page Web Applications
+  url: https://www.codeproject.com/Articles/791740/Using-AngularJs-ASP-NET-MVC-Web-API-and-EntityFram
+  year: 2014
+
+- id: di-unit-of-work-castle-nhibernate
+  title: Dependency Injection and Unit Of Work using Castle Windsor and NHibernate
+  url: https://www.codeproject.com/Articles/543810/Dependency-Injection-and-Unit-Of-Work-using-Castle
+  year: 2013
+
+- id: jtable-signalr-realtime
+  title: Real Time, Asynchronous Web Pages using jTable, SignalR and ASP.NET MVC
+  url: https://www.codeproject.com/Articles/315938/Real-time-Asynchronous-Web-Pages-using-jTable-Sign
+  year: 2012
+
+- id: tcp-server-client-usage
+  title: A Complete TCP Server/Client Communication and RMI Framework - Usage
+  url: https://www.codeproject.com/Articles/153938/TCP-Server-Client-Communication-Usage
+  year: 2011
+
+- id: tcp-server-client-implementation
+  title: A Complete TCP Server/Client Communication and RMI Framework - Implementation
+  url: https://www.codeproject.com/Articles/155282/TCP-Server-Client-Communication-Implementation
+  year: 2011
+
+- id: dotnetmq
+  title: "DotNetMQ: A Complete Message Queue System for .NET"
+  url: https://www.codeproject.com/Articles/193611/DotNetMQ-A-Complete-Message-Queue-System-for-NET
+  year: 2011
+
+- id: jtable-aspnet-mvc3-crud
+  title: AJAX Based CRUD Tables using ASP.NET MVC 3 and jTable jQuery Plug-in
+  url: https://www.codeproject.com/Articles/277576/AJAX-based-CRUD-tables-using-ASP-NET-MVC-3-and-jTa
+  year: 2011
+
+- id: simple-plugin-library
+  title: A Simple Plug-In Library for .NET
+  url: https://www.codeproject.com/Articles/182970/A-Simple-Plug-In-Library-For-NET
+  year: 2011

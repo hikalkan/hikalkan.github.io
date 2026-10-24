@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { imageByName } from '../lib/images';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  compact?: boolean;
+}
+
+const { project, compact = false } = Astro.props;
+const p = project.data;
+const primary = p.links[0];
+---
+
+<article class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-card transition-colors hover:border-faint">
+  {
+    p.image && (
+      <Image
+        src={imageByName(p.image)}
+        alt=""
+        widths={[400, 640]}
+        sizes="(min-width: 640px) 400px, 100vw"
+        class:list={['w-full border-b border-line object-cover', compact ? 'aspect-[2/1]' : 'aspect-[16/10]']}
+      />
+    )
+  }
+  <div class:list={['flex flex-1 flex-col', compact ? 'p-4' : 'p-5']}>
+    <h3 class="font-semibold tracking-tight">
+      {
+        primary ? (
+          <a href={primary.url} target="_blank" rel="noopener" class="after:absolute after:inset-0">
+            {p.name}
+          </a>
+        ) : (
+          p.name
+        )
+      }
+    </h3>
+    {p.role && <p class="mt-0.5 text-sm text-accent">{p.role}</p>}
+    {p.description && <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.description}</p>}
+    <div class="relative z-10 mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+      {
+        p.links.map((l) => (
+          <a href={l.url} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-muted transition-colors hover:text-fg">
+            <Icon name={l.kind === 'source' ? 'github' : 'globe'} class="size-4" />
+            {l.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</article>

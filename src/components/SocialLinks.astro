@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+import { social } from '../lib/site';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<ul class:list={['flex items-center gap-1', className]}>
+  {
+    social.map((s) => (
+      <li>
+        <a
+          href={s.url}
+          class="grid size-9 place-items-center rounded-md text-muted transition-colors hover:text-fg"
+          aria-label={s.name}
+          rel="me noopener"
+          target="_blank"
+        >
+          <Icon name={s.icon} class="size-[18px]" />
+        </a>
+      </li>
+    ))
+  }
+</ul>

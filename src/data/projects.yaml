@@ -1,0 +1,83 @@
+# status: active | past | oldies
+# image: file name in src/assets/images
+
+- id: volobox
+  order: 1
+  name: Volobox
+  description: A team workspace where people and AI agents work as one team on projects, chat, docs, meetings, and code.
+  image: volobox-thumbnail.png
+  status: active
+  links:
+    - { label: Website, url: "https://volobox.io/", kind: website }
+
+- id: abp
+  order: 2
+  name: ABP Framework
+  role: Lead architect & developer
+  description: A complete infrastructure to create modern web applications by following software development best practices and conventions.
+  image: abp-thumbnail.png
+  status: active
+  links:
+    - { label: Website, url: "https://abp.io", kind: website }
+    - { label: Source code, url: "https://github.com/abpframework/abp", kind: source }
+
+- id: aspnet-zero
+  order: 3
+  name: ASP.NET Zero
+  description: A starting point for new web applications with a modern UI and SOLID architecture, with full source code.
+  image: aspnet-zero-thumbnail.png
+  status: active
+  links:
+    - { label: Website, url: "https://aspnetzero.com/", kind: website }
+
+- id: aspnet-boilerplate
+  order: 4
+  name: ASP.NET Boilerplate
+  description: A general purpose application framework especially designed for new modern web applications.
+  image: aspnet-boilerplate-thumbnail.png
+  status: past
+  links:
+    - { label: Website, url: "https://aspnetboilerplate.com/", kind: website }
+    - { label: Source code, url: "https://github.com/aspnetboilerplate/aspnetboilerplate", kind: source }
+
+- id: jtable
+  order: 5
+  name: jTable
+  description: A jQuery plugin to create AJAX based CRUD tables without coding HTML or JavaScript.
+  image: jtable-thumbnail.png
+  status: past
+  links:
+    - { label: Website, url: "http://jtable.org/", kind: website }
+    - { label: Source code, url: "https://github.com/volosoft/jtable", kind: source }
+
+- id: scs
+  order: 6
+  name: SCS
+  description: A TCP server/client communication and remote method invocation framework.
+  image: scs-thumbnail.png
+  status: past
+  links:
+    - { label: Source code, url: "https://github.com/hikalkan/scs", kind: source }
+
+- id: dotnetmq
+  order: 7
+  name: DotNetMQ
+  description: A message queue system entirely built with C#.
+  image: dotnetmq-thumbnail.png
+  status: past
+  links:
+    - { label: Source code, url: "https://github.com/hikalkan/dotnetmq", kind: source }
+
+- id: homeworks
+  order: 8
+  name: Homeworks (school days)
+  status: oldies
+  links:
+    - { label: Source code, url: "https://github.com/hikalkan/homeworks", kind: source }
+
+- id: old-hobby-projects
+  order: 9
+  name: Very old hobby projects
+  status: oldies
+  links:
+    - { label: Source code, url: "https://github.com/hikalkan/old-hobby-projects", kind: source }

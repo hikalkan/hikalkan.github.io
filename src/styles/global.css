@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+}
+
+:root {
+  --bg: #ffffff;
+  --fg: #18181b;
+  --muted: #52525b;
+  --faint: #8b8b94;
+  --line: #e4e4e7;
+  --card: #fafafa;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0b0b0e;
+  --fg: #f4f4f5;
+  --muted: #a1a1aa;
+  --faint: #71717a;
+  --line: #27272a;
+  --card: #131317;
+  --accent: #a5b4fc;
+  --accent-soft: #1e1b4b;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    @apply bg-bg text-fg antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    @apply bg-accent text-bg;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@utility link {
+  @apply text-fg underline decoration-line decoration-1 underline-offset-4 transition-colors hover:decoration-accent;
+}
+
+@layer components {
+  .prose-text p {
+    @apply mb-5 leading-relaxed text-muted;
+  }
+
+  .prose-text strong {
+    @apply font-medium text-fg;
+  }
+
+  .prose-text a {
+    @apply link;
+  }
+
+  .chip {
+    @apply inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-line px-3 py-1 text-sm text-muted transition-colors select-none hover:border-faint hover:text-fg;
+  }
+
+  .chip[aria-pressed='true'] {
+    @apply border-fg bg-fg text-bg;
+  }
+}

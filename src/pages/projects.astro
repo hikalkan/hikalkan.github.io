@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Icon from '../components/Icon.astro';
+import { getProjects } from '../lib/content';
+
+const projects = await getProjects();
+const active = projects.filter((p) => p.data.status === 'active');
+const past = projects.filter((p) => p.data.status === 'past');
+const oldies = projects.filter((p) => p.data.status === 'oldies');
+---
+
+<BaseLayout title="Projects" description="Open source and commercial projects by Halil İbrahim Kalkan: Volobox, ABP Framework, ASP.NET Zero, ASP.NET Boilerplate and more.">
+  <PageHeader title="Projects">
+    <p>The projects I'm currently working on, and the ones I worked on before.</p>
+  </PageHeader>
+
+  <section>
+    <h2 class="mb-6 text-xl font-semibold tracking-tight">Active</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {active.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="mt-20">
+    <h2 class="text-xl font-semibold tracking-tight">Earlier projects</h2>
+    <p class="mt-2 mb-6 text-muted">Projects I'm no longer actively working on.</p>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {past.map((project) => <ProjectCard project={project} compact />)}
+    </div>
+  </section>
+
+  <section class="mt-20">
+    <h2 class="text-xl font-semibold tracking-tight">Oldies</h2>
+    <p class="mt-2 mb-4 text-muted">
+      I developed a lot of hobby and school projects in the days of learning programming. Good old days…
+    </p>
+    <ul class="space-y-2">
+      {
+        oldies.map(({ data: p }) => (
+          <li>
+            <a href={p.links[0].url} target="_blank" rel="noopener" class="inline-flex items-center gap-2 link">
+              <Icon name="github" class="size-4 text-muted" />
+              {p.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

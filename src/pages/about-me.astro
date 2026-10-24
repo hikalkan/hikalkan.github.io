@@ -1,0 +1,148 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import photo from '../assets/images/dotnetfest-halil.jpg';
+
+const timeline = [
+  { year: '1997', text: 'Started programming at 14 with Turbo Pascal 7.0 on an Intel 286.' },
+  { year: '2000', text: 'Built my first website, then dynamic ones with classic ASP and MS Access.' },
+  { year: '2003', text: 'Started Computer Engineering at Sakarya University.' },
+  { year: '2006', text: 'Erasmus exchange semester at the University of Thessaly, Greece.' },
+  { year: '2007', text: 'Graduated as the highest ranking student of the department.' },
+  { year: '2007', text: 'Started working as a professional software developer, later architect and team leader.' },
+  { year: '2011', text: 'Published open source projects like SCS, DotNetMQ and jTable.' },
+  { year: '2014', text: 'Introduced ASP.NET Boilerplate to the community.' },
+  { year: '2015', text: 'Founded my own company, Volosoft.' },
+  { year: '2018', text: 'Started the ABP Framework, the next generation of ASP.NET Boilerplate.' },
+  { year: '2022', text: 'Published Mastering ABP Framework with Packt.' },
+  { year: 'Today', text: 'Leading ABP and working on Volobox.' },
+];
+---
+
+<BaseLayout title="About Me" description="About Halil İbrahim Kalkan: software architect, co-founder of Volosoft and creator of ASP.NET Boilerplate and the ABP Framework.">
+  <PageHeader title="About me">
+    <p>
+      I'm a software architect and developer, programming since 1997. I especially like building
+      <strong class="font-medium text-fg">multithreaded</strong> and <strong class="font-medium text-fg">distributed</strong>
+      systems, application frameworks and open source projects.
+    </p>
+  </PageHeader>
+
+  <figure class="mb-16">
+    <Image
+      src={photo}
+      alt="Halil İbrahim Kalkan talking with attendees after a session at .NET Fest"
+      widths={[640, 1024]}
+      sizes="(min-width: 896px) 848px, 100vw"
+      class="aspect-[16/9] w-full rounded-2xl object-cover object-[center_30%]"
+    />
+  </figure>
+
+  <div class="grid gap-16 lg:grid-cols-[1fr_16rem]">
+    <div class="prose-text max-w-2xl">
+      <p>
+        I was born in <strong>1983</strong>, lived 20 years in <strong>Adana</strong> and have been living in
+        <strong>Istanbul</strong> since 2004. I started Sakarya University <strong>Computer Engineering</strong> in 2003
+        and graduated in 2007 as the <strong>highest ranking student</strong> of the department.
+      </p>
+      <p>
+        After working 8 years as a professional software developer, architect and team leader, I left my job on 31st July
+        2015 and established my own company: <a href="https://volosoft.com">Volosoft</a>.
+      </p>
+      <p>
+        I have been programming since I was 14. I started with Turbo Pascal 7.0 and worked on many languages, platforms
+        and technologies so far.
+      </p>
+      <p>
+        Besides computers, I like reading books, especially science, science fiction, psychology and detective books. I
+        like to play chess and Turkish checkers.
+      </p>
+
+      <h2 class="mt-14 mb-6 text-xl font-semibold tracking-tight text-fg">My computer life</h2>
+
+      <p>
+        I met computers at 13 and started programming at 14 (in <strong>1997</strong>) with
+        <strong>Turbo Pascal 7.0</strong>. My first motivation was to code my own games, because my computer couldn't run
+        good ones. It was an old computer with an Intel <strong>286</strong> CPU and <strong>MS-DOS 6.22</strong>.
+        <strong>Norton Commander 5.0</strong> was my best friend. I built many small games and DOS applications with
+        Pascal. I learned Pascal from a Turkish book and the built-in help of the Turbo Pascal editor, going through all
+        the standard library functions in the help reference and trying them…
+      </p>
+      <p>
+        I got interested in web technologies (<strong>FrontPage 98</strong> and a little <strong>HTML</strong>) through a
+        handbook that came with PC World, but I didn't have a PC to build web sites on. In <strong>2000</strong> I finally
+        got a <strong>Pentium 133</strong> PC (also old for its time) with <strong>Windows 95</strong>. I built my first
+        static HTML web site and published it to a free web host from an internet cafe.
+      </p>
+      <p>
+        One day a PC World issue came with a handbook about <strong>Perl</strong>. I read it and learned that the web is
+        not only static HTML pages. Then I got an <strong>ASP (Active Server Pages)</strong> handbook from PC World and
+        <strong>I saw the light</strong>, it changed my world! It was too hard to make ASP run on Windows 95. I found
+        <strong>PWS</strong> (Personal Web Server, an old variant of IIS) for Windows 98, downloaded it with difficulty and
+        installed it. After a week of effort it worked! During that week, I finished reading the ASP handbook without
+        coding (or coding in my mind), so I was ready. I sat in my chair and started coding ASP. At the same time I learned
+        that an ASP web site isn't very useful without a database… I started learning <strong>MS Access</strong> even
+        though it wasn't installed on my PC. I didn't give up: I designed the database on paper, found an office PC with
+        MS Access, created the database and copied it to my computer with a 3.5 inch floppy disk. Eventually I built my
+        ASP based web site using only ASP, HTML, JavaScript, CSS and Windows Notepad, and uploaded it to a free ASP host.
+      </p>
+      <p>
+        In 2001, I started <strong>Textile Engineering</strong> at Çukurova University and continued programming as a
+        hobby. In the second year I decided to give up textile, took the university exams again and got into
+        <strong>Computer Engineering</strong> at Sakarya University. Since I love computers and programming, my grades were
+        pretty good and I graduated as the highest ranking student of the department (3.55 of 4.00).
+      </p>
+      <p>
+        In the first year of university, I learned <strong>C</strong>, <strong>Visual Basic .NET</strong> and
+        <strong>ASP.NET</strong>. In the second year I joined the university's IT department to build a completely new
+        Student Relations Automation System. I worked there for a year, finished the project and learned Visual Basic .NET
+        (with Visual Studio 2003) and <strong>SQL Server 2000</strong> deeply.
+      </p>
+      <p>
+        In my third year (2005) I learned <strong>C++</strong> from Robert Lafore's ultimate book,
+        <em>Object Oriented Programming in C++</em>. It was my first introduction to
+        <strong>object oriented programming</strong>, and I was impressed! After C++, learning <strong>C#</strong> was easy,
+        since I was already familiar with .NET through VB.NET.
+      </p>
+      <p>
+        In the second half of the third year, I joined the <strong>Erasmus</strong> program and studied at the University of
+        Thessaly in <strong>Greece</strong>. It was my first experience abroad and was very valuable for me.
+      </p>
+      <p>
+        In my final year, my graduation project was a "<strong>TCP/IP stack implementation in Java</strong>". I didn't have
+        good knowledge of Java or TCP/IP. In the first term, I learned Java deeply (from Herbert Schildt's
+        <em>Java: The Complete Reference</em>) and researched the TCP/IP protocol suite. In the last term I implemented
+        <strong>ARP</strong>, <strong>IP</strong> and <strong>TCP</strong> (TCP wasn't completely finished because of time
+        constraints). I managed to build an application that communicates over the internet using my own TCP/IP stack
+        instead of the default Windows sockets. I also wrote an article and developed an application on
+        <strong>ARP spoofing</strong>, and improved my skills in <strong>multithreaded and asynchronous programming</strong>.
+      </p>
+      <p>
+        After graduating in <strong>2007</strong>, I worked for two different companies and finally for my own company. I
+        developed many Windows and web based applications and services, primarily with <strong>C# and .NET</strong>, and
+        learned many other technologies and methods along the way.
+      </p>
+      <p>
+        I especially like developing <strong>well designed, object oriented, multithreaded</strong> and
+        <strong>distributed</strong> software systems. Just as a computer without the internet isn't very useful, I think an
+        application isn't powerful without communicating with other applications and systems.
+      </p>
+    </div>
+
+    <aside class="lg:sticky lg:top-24 lg:self-start">
+      <h2 class="mb-5 text-xs font-medium tracking-wide text-faint uppercase">Timeline</h2>
+      <ol class="relative space-y-5 border-l border-line pl-5">
+        {
+          timeline.map((item) => (
+            <li class="relative">
+              <span class="absolute top-1.5 -left-[24.5px] size-2 rounded-full bg-line ring-4 ring-bg" />
+              <p class="text-xs font-semibold text-accent tabular-nums">{item.year}</p>
+              <p class="mt-0.5 text-sm leading-snug text-muted">{item.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </aside>
+  </div>
+</BaseLayout>

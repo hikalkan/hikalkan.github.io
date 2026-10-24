@@ -1,0 +1,565 @@
+# Talks, newest first.
+# date: "YYYY", "YYYY-MM" or "YYYY-MM-DD"
+# scope: international | national
+# format: conference | meetup | workshop
+# topics: see src/lib/taxonomy.ts
+
+# ---------------------------------------------------------------------------
+# International conferences
+# ---------------------------------------------------------------------------
+
+- id: 2026-wearedevelopers-dynamic-entities
+  title: "Dynamic Entities in .NET: Building Low-Code Systems on Top of Entity Framework Core"
+  event: WeAreDevelopers World Congress 2026
+  eventUrl: https://www.wearedevelopers.com/world-congress
+  sessionUrl: https://www.wearedevelopers.com/events/world-congress-2026-europe/sessions/1249-dynamic-entities-in
+  date: "2026-07-10"
+  location: Berlin, Germany
+  scope: international
+  format: conference
+  topics: [efcore, low-code, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2026-05-07%20Dotnet%20Konf%20Devnot%20EF%20Core%20Dynamic%20Entities
+  video: https://www.wearedevelopers.com/videos/100218-dynamic-entities-in-net-building-low-code-systems-on-top-of-entity-framework-core
+
+- id: 2025-techorama-nl-kubernetes
+  title: Building a Kubernetes Integrated Local Development Environment for ASP.NET Core
+  event: Techorama Netherlands 2025
+  eventUrl: https://techorama.nl/
+  sessionUrl: https://techorama.nl/agenda/session/building-a-kubernetes-integrated-local-microservice-development-environment-for-aspnet-core/
+  date: "2025-10-29"
+  location: Utrecht, Netherlands
+  scope: international
+  format: conference
+  topics: [kubernetes, microservices, aspnetcore]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-10-29%20Netherlands%20Kubernetes%20Integrated%20Development
+
+- id: 2025-techorama-nl-ddd
+  title: Implementing Domain-Driven Design as a Pragmatic .NET Developer
+  event: Techorama Netherlands 2025
+  eventUrl: https://techorama.nl/
+  sessionUrl: https://techorama.nl/agenda/session/implementing-domain-driven-design-as-a-pragmatic-net-developer/
+  date: "2025-10-28"
+  location: Utrecht, Netherlands
+  scope: international
+  format: conference
+  topics: [ddd]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-10-28%20Netherlands%20Domain%20Driven%20Design
+
+- id: 2025-developer-days-warsaw-ddd
+  title: Implementing Domain-Driven Design as a Pragmatic .NET Developer
+  event: .NET Developer Days 2025
+  eventUrl: https://developerdays.eu/warsaw/
+  date: "2025-10-22"
+  location: Warsaw, Poland
+  scope: international
+  format: conference
+  topics: [ddd]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-10-22%20Warsaw%20Domain%20Driven%20Design
+
+- id: 2025-developer-days-warsaw-kubernetes
+  title: Building a Kubernetes Integrated Local Development Environment for ASP.NET Core
+  event: .NET Developer Days 2025
+  eventUrl: https://developerdays.eu/warsaw/
+  date: "2025-10-21"
+  location: Warsaw, Poland
+  scope: international
+  format: conference
+  topics: [kubernetes, microservices, aspnetcore]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-10-21%20Warsaw%20Kubernetes%20Integrated%20Development
+
+- id: 2025-dotnext-modular-monolith
+  title: Designing Modular Monolith for Microservice Architecture
+  event: DotNext 2025
+  eventUrl: https://dotnext.ru/
+  sessionUrl: https://dotnext.ru/en/talks/02d3591c8be44a48b3336f7b887171f7/
+  date: "2025-09-19"
+  location: St. Petersburg, Russia
+  scope: international
+  format: conference
+  topics: [modular, microservices]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-09-19%20Dotnext%20St%20Petersburg
+
+- id: 2025-ndc-copenhagen-ddd
+  title: Implementing Domain-Driven Design as a Pragmatic .NET Developer
+  event: NDC Copenhagen 2025
+  eventUrl: https://ndccopenhagen.com/
+  sessionUrl: https://ndccopenhagen.com/agenda/implementing-domain-driven-design-as-a-pragmatic-net-developer-05jo/07tst43ye47
+  date: "2025-09-11"
+  location: Copenhagen, Denmark
+  scope: international
+  format: conference
+  topics: [ddd]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-09-11%20Domain%20Driven%20Design%20NDC%20Copenhagen
+
+- id: 2025-wearedevelopers-modular-workshop
+  title: "Workshop: Building Modular Applications with .NET and ABP Framework"
+  event: WeAreDevelopers World Congress 2025
+  eventUrl: https://www.wearedevelopers.com/world-congress
+  date: "2025-07-08"
+  location: Berlin, Germany
+  scope: international
+  format: workshop
+  topics: [modular, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-07-08%20WeAreDevelopers%20Berlin%20ABP%20Modular%20Dev
+
+- id: 2025-devdays-vilnius-ddd
+  title: Implementing Domain-Driven Design as a Pragmatic Developer
+  event: DevDays Europe 2025
+  eventUrl: https://devdays.lt/
+  sessionUrl: https://events.pinetool.ai/3412/#sessions/110317
+  date: "2025-05-22"
+  location: Vilnius, Lithuania
+  scope: international
+  format: conference
+  topics: [ddd]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-05-22%20Domain%20Driven%20Design%20Lithiania%20Vilnius
+
+- id: 2025-codemotion-rome-modular-monolith
+  title: Designing Modular Monolith for Microservice Architecture
+  event: Codemotion Rome 2025
+  eventUrl: https://www.codemotion.com
+  sessionUrl: https://conferences.codemotion.com/rome2025/
+  date: "2025-04-16"
+  location: Rome, Italy
+  scope: international
+  format: conference
+  topics: [modular, microservices]
+  slides: https://github.com/hikalkan/presentations/tree/master/2025-04-16%20Roma%20Designing%20Monolith%20First%20For%20Microservices
+
+- id: 2024-dotnet-conference-italy-multi-tenancy
+  title: Developing Multi-Tenant Applications with .NET and ABP Framework
+  event: .NET Conference Italy 2024
+  eventUrl: https://www.dotnetconference.it/
+  sessionUrl: https://www.dotnetconference.it/e/sessione/3603/Developing-Multi-Tenant-applications-with-NET-and-ABP-Framework
+  date: "2024-12-16"
+  location: Milan, Italy
+  scope: international
+  format: conference
+  topics: [multi-tenancy, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-12-16%20Dotnet%20Conference%20Italy
+
+- id: 2024-dotnet-conf-modular-monolith
+  title: Building Modular Monolith Applications with ASP.NET Core & ABP Studio
+  event: .NET Conf 2024
+  eventUrl: https://www.dotnetconf.net/
+  date: "2024-11-14"
+  location: Online
+  scope: international
+  format: conference
+  topics: [modular, aspnetcore, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-11-14%20Dotnet%20Conf%20Modular%20Development
+  video: https://www.youtube.com/watch?v=Bn7ybLRfQdg
+
+- id: 2024-dotnext-ddd
+  title: Implementing Domain-Driven Design as a Pragmatic Developer
+  event: DotNext 2024
+  eventUrl: https://dotnext.ru/en/
+  date: "2024-09-10"
+  location: Moscow, Russia
+  scope: international
+  format: conference
+  topics: [ddd]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-09-10%20Dotnext%202024
+
+- id: 2024-wearedevelopers-abp-workshop
+  title: "Workshop: Using the ABP Framework as an Opinionated .NET Application Architecture"
+  event: WeAreDevelopers World Congress 2024
+  eventUrl: https://www.wearedevelopers.com/world-congress
+  date: "2024-07-17"
+  location: Berlin, Germany
+  scope: international
+  format: workshop
+  topics: [abp, aspnetcore]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-07-17%20WeAreDevelopers%20Berlin
+
+- id: 2024-devdays-vilnius-kubernetes
+  title: Building a Kubernetes Integrated Local Development Environment
+  event: DevDays Europe 2024
+  eventUrl: https://devdays.lt/
+  date: "2024-05-24"
+  location: Vilnius, Lithuania
+  scope: international
+  format: conference
+  topics: [kubernetes, microservices]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-05-24%20DevDays%20Kubernetes%20Integrated%20Dev%20Environment
+  video: https://www.youtube.com/watch?v=5t6BelGwEmI&list=PLqYhGsQ9iSEpFD1hBBle_VkpJ-S-FC4Lc&index=3
+
+- id: 2024-abp-conf-modular-monolith
+  title: Designing Modular Monolith for Microservice Architecture
+  event: ABP Dotnet Conf 2024
+  eventUrl: https://abp.io/conference/2024
+  date: "2024-05-09"
+  location: Online
+  scope: international
+  format: conference
+  topics: [modular, microservices]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-05-09%20Designing%20Monolith%20First%20for%20Microservice%20Architecture
+  video: https://www.youtube.com/watch?v=A4W5wHhB_Jc
+
+- id: 2023-abp-conf-kubernetes
+  title: Kubernetes Integrated Microservice Development with ABP Studio
+  event: ABP Dotnet Conf 2023
+  eventUrl: https://abp.io/conference/2023
+  date: "2023-05-10"
+  location: Online
+  scope: international
+  format: conference
+  topics: [kubernetes, microservices, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2023-05-10%20ABP%20Conf%202023%20Developing%20with%20Kubernetes
+  video: https://www.youtube.com/watch?v=XiPRcIHJ3NE
+
+- id: 2023-dnf-summit-multi-tenancy
+  title: Building Multi-Tenant Applications with ASP.NET Core and the ABP Framework
+  event: .NET Foundation Summit 2023
+  eventUrl: https://www.dnfsummit.org/
+  date: "2023-01-17"
+  location: Online
+  scope: international
+  format: conference
+  topics: [multi-tenancy, aspnetcore, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2023-01-17%20Dotnet%20Foundation%20Summit%202023
+  video: https://youtu.be/LHCi6i3P0xA?t=5410
+
+- id: 2022-dotnet-conf-authorization
+  title: Authorization in a Distributed / Microservice System
+  event: .NET Conf 2022
+  eventUrl: https://www.dotnetconf.net/
+  date: "2022-10-15"
+  location: Online
+  scope: international
+  format: conference
+  topics: [microservices, security]
+  slides: https://github.com/hikalkan/presentations/tree/master/2022-10-15%20Authorization-In-Distributed-Systems
+  video: https://www.youtube.com/watch?v=DVqvRZ0w-7g
+
+- id: 2022-dnf-summit-abp
+  title: Introducing the ABP Framework
+  event: .NET Foundation Summit 2022
+  eventUrl: https://www.dnfsummit.org/
+  date: "2022-07-20"
+  location: Online
+  scope: international
+  format: conference
+  topics: [abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2022-07-20%20Dotnet%20Foundation%20Summit%202022
+  video: https://youtu.be/VL0ewZ-0ruo?t=2110
+
+- id: 2021-dotnet-community-standup-abp
+  title: Exploring the ABP Framework
+  event: .NET Community Standup
+  eventUrl: https://dotnet.microsoft.com/live/community-standup
+  date: "2021-09-28"
+  location: Online
+  scope: international
+  format: conference
+  topics: [abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2021-09-22%20Dotnet%20Community%20Standup
+  video: https://www.youtube.com/watch?v=vMWM-_ihjwM
+
+- id: 2019-developer-days-warsaw-microservices
+  title: "Microservice Implementation: Tools, Patterns & Practices"
+  event: .NET Developer Days 2019
+  eventUrl: https://net.developerdays.pl/
+  sessionUrl: https://2019.net.developerdays.pl/microservice-implementation-tools-patterns-practices/
+  date: "2019-10-25"
+  location: Warsaw, Poland
+  scope: international
+  format: conference
+  topics: [microservices]
+  slides: https://github.com/hikalkan/presentations/tree/master/2019-10-25-Microservices
+
+- id: 2019-dotnet-conf-abp
+  title: "ABP: Open Source Web Application Framework for ASP.NET Core"
+  event: .NET Conf 2019
+  eventUrl: https://www.dotnetconf.net/
+  date: "2019-09-25"
+  location: Online
+  scope: international
+  format: conference
+  topics: [abp, aspnetcore]
+  slides: https://github.com/hikalkan/presentations/tree/master/2019-09-25%20ABP%20Framework%20DotnetConf
+  video: https://www.youtube.com/watch?v=bnvBcnCC1p0
+
+- id: 2019-dotnetfest-ddd
+  title: Implementing Domain Driven Design
+  event: .NET Fest 2019
+  eventUrl: https://www.dotnetfest.com
+  sessionUrl: https://www.dotnetfest.com/dotnetfest2019/indexe.html
+  date: "2019"
+  location: Kyiv, Ukraine
+  scope: international
+  format: conference
+  topics: [ddd]
+  slides: https://github.com/hikalkan/presentations/tree/master/2019-XX-XX%20Implementing%20DDD
+  video: https://www.youtube.com/watch?v=Yx3Y3-GC9EE&list=PLuOBDBq7MW72wvYB5l5pmwBYdF9bY3Ctx
+
+- id: 2019-techorama-ddd
+  title: Implementing Domain Driven Design
+  event: Techorama Netherlands 2019
+  eventUrl: https://www.techorama.nl/
+  sessionUrl: https://techoramanetherlands2019.sched.com/event/TH5y/implementing-domain-driven-design
+  date: "2019"
+  location: Ede, Netherlands
+  scope: international
+  format: conference
+  topics: [ddd]
+  slides: https://github.com/hikalkan/presentations/tree/master/2019-XX-XX%20Implementing%20DDD
+
+- id: 2018-dotnext-multi-tenancy
+  title: "ASP.NET Core Multi-Tenant Architecture: Challenges & Solutions"
+  event: DotNext 2018
+  eventUrl: https://dotnext-moscow.ru/
+  sessionUrl: https://2018.dotnext-moscow.ru/en/2018/msk/talks/6mvtqlqqhkwuwmcacug4we/
+  date: "2018-11-22"
+  location: Moscow, Russia
+  scope: international
+  format: conference
+  topics: [multi-tenancy, aspnetcore]
+  slides: https://github.com/hikalkan/presentations/tree/master/2018-11-22-Multi-Tenancy
+  video: https://www.youtube.com/watch?v=G8onwaKFRgc
+
+# ---------------------------------------------------------------------------
+# International meetups (ABP Community Talks)
+# ---------------------------------------------------------------------------
+
+- id: 2024-abp-community-talks-modular-monolith
+  title: Building Modular Monolith Applications
+  event: ABP Community Talks
+  date: "2024-10-17"
+  location: Online
+  scope: international
+  format: meetup
+  topics: [modular, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-10-17%20ABP%20Community%20Talks%202024.6
+  video: https://www.youtube.com/watch?v=5_pGF42dDoE
+
+- id: 2024-abp-community-talks-abp-studio
+  title: "ABP Studio: The Missing Tool for .NET Developers"
+  event: ABP Community Talks
+  date: "2024-09"
+  location: Online
+  scope: international
+  format: meetup
+  topics: [abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-08-15%20ABP%20Community%20Talks%202024.4
+  video: https://www.youtube.com/watch?v=uYTbGLtxdUE&list=PLsNclT2aHJcOsPustEkzG6DywiO8eh0lB
+
+- id: 2023-abp-community-talks-cms
+  title: Build Your Own CMS with .NET
+  event: ABP Community Talks
+  date: "2023-09-28"
+  location: Online
+  scope: international
+  format: meetup
+  role: co-speaker
+  topics: [abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2023-09-28%20ABP%20CMS%20Kit
+  video: https://www.youtube.com/watch?v=S9__Hnu29tI&list=PLsNclT2aHJcOsPustEkzG6DywiO8eh0lB
+
+- id: 2023-abp-community-talks-why-abp
+  title: Why Should I Use the ABP Framework as a .NET Developer?
+  event: ABP Community Talks
+  date: "2023-03-30"
+  location: Online
+  scope: international
+  format: meetup
+  role: co-speaker
+  topics: [abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2023-03-30%20ABP%20Community%20Talks%202023.2
+  video: https://www.youtube.com/watch?v=TS8_iHkuCjw&list=PLsNclT2aHJcOsPustEkzG6DywiO8eh0lB
+
+- id: 2022-abp-community-talks-ddd-book
+  title: Domain-Driven Design & the Mastering ABP Framework Book
+  event: ABP Community Talks
+  date: "2022-04-07"
+  location: Online
+  scope: international
+  format: meetup
+  role: co-speaker
+  topics: [ddd, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2022-04-07%20ABP%20Community%20Talks%202022.3
+  video: https://www.youtube.com/watch?v=lB3iXQccaV4&list=PLsNclT2aHJcOsPustEkzG6DywiO8eh0lB
+
+- id: 2022-abp-community-talks-microservices
+  title: Microservice Development with the ABP Framework
+  event: ABP Community Talks
+  date: "2022-01"
+  location: Online
+  scope: international
+  format: meetup
+  role: co-speaker
+  topics: [microservices, abp]
+  video: https://www.youtube.com/watch?v=TpyROlTBc50
+
+- id: 2021-abp-community-talks-outbox-inbox
+  title: Outbox / Inbox Patterns for the Distributed Events
+  event: ABP Community Talks
+  date: "2021-12-16"
+  location: Online
+  scope: international
+  format: meetup
+  role: co-speaker
+  topics: [microservices, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2021-12-16%20ABP%20Community%20Talks
+  video: https://youtu.be/uLu2t5E8T-w?t=258
+
+# ---------------------------------------------------------------------------
+# National conferences & meetups
+# ---------------------------------------------------------------------------
+
+- id: 2026-devnot-dotnet-conf-dynamic-entities
+  title: "Dynamic Entities in .NET: Building Low-Code Systems on Top of Entity Framework Core"
+  event: DevNot .NET Conference 2026
+  eventUrl: https://dotnet.devnot.com/
+  date: "2026-05-07"
+  location: Türkiye
+  scope: national
+  format: conference
+  topics: [efcore, low-code, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2026-05-07%20Dotnet%20Konf%20Devnot%20EF%20Core%20Dynamic%20Entities
+
+- id: 2024-devnot-summit-integration-patterns
+  title: Integration Patterns in Modular Monolith Applications
+  event: DevNot Summit 2024
+  eventUrl: https://summit.devnot.com/
+  date: "2024-10-12"
+  location: Türkiye
+  scope: national
+  format: conference
+  topics: [modular]
+  slides: https://github.com/hikalkan/presentations/tree/master/2024-10-12%20Devnot%20Summit%202024
+
+- id: 2023-devnot-dotnet-conf-concurrency
+  title: Dealing with Concurrency / Multi-Threading in .NET
+  event: DevNot .NET Conference 2023
+  eventUrl: https://dotnet.devnot.com
+  date: "2023-06-01"
+  location: Türkiye
+  scope: national
+  format: conference
+  topics: [concurrency]
+  slides: https://github.com/hikalkan/presentations/tree/master/2023-06-01%20Dealing%20with%20Concurrency%20-%20Multi-Threading%20in%20Dotnet
+
+- id: 2022-devnot-meetup-monolith-first
+  title: Designing Monolith First for Microservice Architecture
+  event: DevNot Meetup
+  eventUrl: http://devnot.com/
+  date: "2022-05-12"
+  location: Türkiye
+  scope: national
+  format: meetup
+  topics: [modular, microservices]
+  slides: https://github.com/hikalkan/presentations/tree/master/2022-05-12%20Designing%20Monolith%20First%20(TR)
+
+- id: 2021-dotnet-konf-azerbaijan-microservices
+  title: Inter-Microservice Communication with the ABP Framework
+  event: DOTNET Konf 2021 Azərbaycan
+  date: "2021-12-11"
+  location: Online
+  scope: national
+  format: conference
+  topics: [microservices, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2021-12-11%20DOTNET%20Konf%20Az%C9%99rbaycan
+  video: https://www.youtube.com/watch?v=_GiZAK3m5kA
+
+- id: 2021-dotnetkonf-blazor
+  title: "Blazor: Building Reusable Component Libraries"
+  event: DotnetKonf 2021
+  eventUrl: https://www.dotnetkonf.com/
+  date: "2021-02-21"
+  location: Online
+  scope: national
+  format: conference
+  topics: [blazor]
+  slides: https://github.com/hikalkan/presentations/tree/master/2021-02-21%20DotnetKonf
+
+- id: 2020-devnot-summit-blazor-workshop
+  title: "Workshop: Blazor & ABP Framework"
+  event: DevNot Summit 2020
+  eventUrl: http://summit.devnot.com/
+  date: "2020-11-22"
+  location: Online
+  scope: national
+  format: workshop
+  topics: [blazor, abp]
+  slides: https://github.com/hikalkan/presentations/tree/master/2020-11-22%20DevNot%20Summit%20Blazor%20and%20ABP
+
+- id: 2019-devnot-summit-microservices
+  title: "Implementing a Microservice Solution: Tools, Patterns & Practices"
+  event: DevNot Summit 2019
+  eventUrl: http://summit.devnot.com/
+  sessionUrl: http://summit.devnot.com/2019/
+  date: "2019-05-15"
+  location: Istanbul, Türkiye
+  scope: national
+  format: conference
+  topics: [microservices]
+  slides: https://github.com/hikalkan/presentations/tree/master/2019-05-15-Microservices
+
+- id: 2019-dotnetkonf-ddd
+  title: Implementing Domain Driven Design
+  event: DotnetKonf 2019
+  eventUrl: http://dotnetkonf.com/
+  date: "2019"
+  location: Istanbul, Türkiye
+  scope: national
+  format: conference
+  topics: [ddd]
+  slides: https://github.com/hikalkan/presentations/tree/master/2019-XX-XX%20Implementing%20DDD
+
+- id: 2018-dotnetkonf-modularity
+  title: Designing Modularity on ASP.NET Core
+  event: DotnetKonf 2018
+  eventUrl: http://dotnetkonf.com/
+  date: "2018-11-03"
+  location: Istanbul, Türkiye
+  scope: national
+  format: conference
+  topics: [modular, aspnetcore]
+  slides: https://github.com/hikalkan/presentations/tree/master/2018-11-03-Designing-Modularity
+
+- id: 2018-devnot-meetup-multi-tenancy
+  title: Developing Multi-Tenant / SaaS Systems
+  event: DevNot Meetup
+  eventUrl: http://devnot.com/
+  date: "2018-04-06"
+  location: Istanbul, Türkiye
+  scope: national
+  format: meetup
+  topics: [multi-tenancy]
+  slides: https://github.com/hikalkan/presentations/tree/master/2018-04-06-Multi-Tenancy
+  video: https://www.youtube.com/watch?v=i4EsP1cN64g
+
+- id: 2018-devnot-meetup-abp-vnext
+  title: Introduction to ABP (vNext) Framework
+  event: DevNot Meetup
+  eventUrl: http://devnot.com/
+  date: "2018"
+  location: Istanbul, Türkiye
+  scope: national
+  format: meetup
+  topics: [abp]
+  video: https://www.youtube.com/watch?v=WgjNGCdSnhc
+
+- id: 2017-devnot-core-day
+  title: ASP.NET Core & EF Core, Intro & Highlights
+  event: DevNot Core Day 2017
+  eventUrl: https://www.eventbrite.com/e/dotnet-core-day-tickets-38896075208
+  date: "2017-11-11"
+  location: Istanbul, Türkiye
+  scope: national
+  format: conference
+  topics: [aspnetcore, efcore]
+  slides: https://github.com/hikalkan/presentations/tree/master/2017-11-11-DotnetCoreDays
+  video: https://www.youtube.com/watch?v=tnyOi0Y70wY
+
+- id: 2017-devnot-meetup-ddd-workshop
+  title: "Workshop: Domain Driven Design"
+  event: DevNot Meetup
+  eventUrl: http://devnot.com/
+  date: "2017"
+  location: Istanbul, Türkiye
+  scope: national
+  format: workshop
+  topics: [ddd]
+  video: https://www.youtube.com/watch?v=NKidaFu0dWY

@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { getArticles } from '../lib/content';
+
+const articles = await getArticles();
+const years = [...new Set(articles.map((a) => a.data.year))];
+
+function source(url: string) {
+  const host = new URL(url).hostname;
+  if (host.endsWith('abp.io')) return 'ABP Community';
+  if (host.endsWith('medium.com')) return 'Medium';
+  if (host.endsWith('codeproject.com')) return 'CodeProject';
+  return host.replace(/^www\./, '');
+}
+---
+
+<BaseLayout title="Articles" description="Software development articles and tutorials by Halil İbrahim Kalkan on .NET, ASP.NET Core, EF Core, DDD and the ABP Framework.">
+  <PageHeader title="Articles">
+    <p>I love writing software development articles, tutorials and documentation. Here is a selection, grouped by year.</p>
+  </PageHeader>
+
+  {
+    years.map((year) => (
+      <section class="grid gap-x-8 sm:grid-cols-[5rem_1fr]">
+        <h2 class="pt-4 text-sm font-semibold text-faint tabular-nums sm:sticky sm:top-20 sm:self-start">{year}</h2>
+        <ul class="divide-y divide-line border-b border-line">
+          {articles
+            .filter((a) => a.data.year === year)
+            .map(({ data: a }) => (
+              <li>
+                <a href={a.url} target="_blank" rel="noopener" class="group flex items-start justify-between gap-6 py-4">
+                  <span>
+                    <span class="font-medium text-pretty transition-colors group-hover:text-accent">{a.title}</span>
+                    <span class="mt-1 block text-sm text-faint">{source(a.url)}</span>
+                  </span>
+                  <Icon name="arrow-up-right" class="mt-1 size-4 shrink-0 text-faint transition-colors group-hover:text-fg" />
+                </a>
+              </li>
+            ))}
+        </ul>
+      </section>
+    ))
+  }
+</BaseLayout>
